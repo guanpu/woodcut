@@ -1,0 +1,25 @@
+{
+  "name": "pguan",
+  "fields": [{
+      "name": "gender",
+      "label": "Gender",
+      "type": "String",
+      "component": "input-text",
+      "visible": true,
+      "sortable": true,
+      "isId": true,
+      "editable": true
+    },
+    {
+      "name": "age",
+      "label": "Age",
+      "type": "Number",
+      "component": "input-number",
+      "visible": true,
+      "sortable": true,
+      "editable": true
+    }
+  ],
+  "api": "pguan",
+  "actions": ["create", "update", "delete"]
+}

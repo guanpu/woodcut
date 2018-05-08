@@ -1,0 +1,75 @@
+<!--
+ Copyright (c) 2014, 2017, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+ <div class="oj-web-padding">
+  <h1><span data-bind="text:title"></span></h1>
+  <oj-collapsible class="queryPanel" id="collapsiblePage">
+    <h3 id="h" slot="header">Advanced Search</h3>
+    <div id="filterPanel">
+      <q-control id="queryParameter" fields="[[queryFields]]"></q-control>
+      <oj-button class="fr" id="queryButton" data-bind="click: filteredQuery"><span data-bind="text: queryButtonText"></span></oj-button>
+      <div style="clear: both"></div>
+    </div>
+  </oj-collapsible>
+  <hr>
+  <div id="tableController">
+    <div id="actions">
+      <oj-toolbar id='myToolbar' class='oj-toolbar-bottom-border' aria-label='Editing Toolbar' aria-controls='controlled'>
+        <oj-button id='Create' data-bind="click: openCreateDialog">
+          <span slot='startIcon' class='slc-create-icon-16'></span>Create
+        </oj-button>
+        <oj-button id='Delete' data-bind="click: deleteOpen" display='all'>
+          <span slot='startIcon' class='slc-delete-icon-16'></span>Delete
+        </oj-button>
+        <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span>
+      </oj-toolbar>
+    </div>
+  </div>
+  <div id="deviceBindingContainer">
+    <oj-table id='table' aria-label='ESim Table' data='[[pagingDatasource]]' columns='{{columnArray}}' style='width: 100%;' selection-mode='{"row": "multiple", "column": "multiple"}' data-bind="click: selectionImsi">
+      <oj-paging-control id="paging" data='[[pagingDatasource]]' page-options.max-page-links='5' page-size='[[_pageSize]]' slot='bottom'>
+      </oj-paging-control>
+    </oj-table>
+  </div>
+
+  <oj-dialog style="display:none; width: 800px; height: 400px;" id="createModalDialog" title="Create SIM">
+    <div slot="body">
+      <div class="oj-form-layout">
+        <div class=" oj-form oj-form-no-dividers oj-md-labels-inline oj-lg-form-across
+                         oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-lg-odd-cols-2 oj-lg-even-cols-4">
+
+  <oj-label for='input-text' show-required="[[isRequired]]" help.definition='[[helpDef]]' help.source='[[helpSource]]'>input</oj-label>
+  <oj-input-text id="input-text" required="[[isRequired]]" value="text"></oj-input-text>
+
+
+  <oj-label for="spinner" show-required="[[isRequired]]" help.definition='[[helpDef]]' help.source='[[helpSource]]'>input number</oj-label>
+  <oj-input-number id="spinner" max="100" min="10" step="10" value="20" required="[[isRequired]]"></oj-input-number>
+
+        </div>
+      </div>
+    </div>
+    <div slot="footer" class="oj-dialog-footer">
+      <div class="oj-lg-align-items-end">
+        <oj-button id="okButton" class="oj-button-confirm" data-bind="click: createOne"> Save
+        </oj-button>
+      </div>
+    </div>
+  </oj-dialog>
+
+  <oj-dialog style="display:none" id="delete_dialog" title="Action Required">
+    <div slot="body">
+      This item will be deleted, are you sure?
+    </div>
+    <div slot="footer">
+      <oj-button id="okButton" data-bind="click: deleteOne">
+        OK
+      </oj-button>
+      <oj-button id="cancelButton" data-bind="click: cancelDelete">
+        Cancel
+      </oj-button>
+    </div>
+  </oj-dialog>
+
+
+</div>

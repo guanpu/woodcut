@@ -1,0 +1,31 @@
+{
+  "name": "woodcut",
+  "version": "1.0.2",
+  "description": "A UI gen tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "UI",
+    "generation"
+  ],
+  "preferGlobal": true,
+  "publishConfig": {
+    "registry": "http://10.113.49.221:5800/repository/offical-npm-rep/"
+  },
+  "bin": {
+    "woodcut": "bin/index.js"
+  },
+  "author": "Pu Guan",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "jsdom": "^11.9.0",
+    "underscore": "^1.9.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.1.1",
+    "sinon": "^5.0.3"
+  }
+}
