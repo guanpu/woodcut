@@ -16,9 +16,6 @@
   <div id="tableController">
     <div id="actions">
       <oj-toolbar id='myToolbar' class='oj-toolbar-bottom-border' aria-label='Editing Toolbar' aria-controls='controlled'>
-        <oj-button id='Create' data-bind="click: openCreateDialog">
-          <span slot='startIcon' class='slc-create-icon-16'></span>Create
-        </oj-button>
         <oj-button id='Delete' data-bind="click: deleteOpen" display='all'>
           <span slot='startIcon' class='slc-delete-icon-16'></span>Delete
         </oj-button>
@@ -26,8 +23,9 @@
       </oj-toolbar>
     </div>
   </div>
+
   <div id="deviceBindingContainer">
-    <oj-table id='table' aria-label='ESim Table' data='[[pagingDatasource]]' columns='{{columnArray}}' style='width: 100%;' selection-mode='{"row": "multiple", "column": "multiple"}' data-bind="click: selectionImsi">
+    <oj-table id='table' aria-label='ESim Table' data='[[pagingDatasource]]' columns='{{columnArray}}' style='width: 100%;' selection-mode='{"row": "multiple", "column": "multiple"}'>
       <oj-paging-control id="paging" data='[[pagingDatasource]]' page-options.max-page-links='5' page-size='[[_pageSize]]' slot='bottom'>
       </oj-paging-control>
     </oj-table>
@@ -39,12 +37,12 @@
         <div class=" oj-form oj-form-no-dividers oj-md-labels-inline oj-lg-form-across
                          oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-lg-odd-cols-2 oj-lg-even-cols-4">
 
-  <oj-label for='input-text' show-required="[[isRequired]]" help.definition='[[helpDef]]' help.source='[[helpSource]]'>input</oj-label>
-  <oj-input-text id="input-text" required="[[isRequired]]" value="text"></oj-input-text>
+  <oj-label for='input-text'>input</oj-label>
+  <oj-input-text id="input-text"></oj-input-text>
 
 
-  <oj-label for="spinner" show-required="[[isRequired]]" help.definition='[[helpDef]]' help.source='[[helpSource]]'>input number</oj-label>
-  <oj-input-number id="spinner" max="100" min="10" step="10" value="20" required="[[isRequired]]"></oj-input-number>
+  <oj-label for="spinner">input number</oj-label>
+  <oj-input-number id="spinner" max="100" min="10" step="10" value="20" ></oj-input-number>
 
         </div>
       </div>
@@ -70,6 +68,5 @@
       </oj-button>
     </div>
   </oj-dialog>
-
 
 </div>

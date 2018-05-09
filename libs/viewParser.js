@@ -24,7 +24,7 @@ function lineHandler(me) {
   lastBlocker=curr;
   
   return function _lineHandler(line) {
-    let seperator = /__(foreach|if):([A-Za-z0-9]*)__/.exec(line);
+    let seperator = /__(foreach|if):([^_]*)__/.exec(line);
     if (seperator != null) {
       if(seperator[1]==='foreach') {
         stack.push(curr);
@@ -34,26 +34,35 @@ function lineHandler(me) {
         ctx.parent = oldctx;
 
         curr = new blockHandler(ctx);
-        lastBlocker =curr;        
+        lastBlocker =curr;
       } else if(seperator[1]==='if') {
-        let func = new Function(seperator[2]);
+        let func = new Function("return " + seperator[2]);
         let p = func.bind(ctx);
-        if(p()) {
-          ctx.skip = true;
-        }
+          stack.push(curr);
+
+          let oldctx = _.clone(ctx);
+          oldctx.skip = !p();
+          ctx = oldctx;
+          curr = new blockHandler(ctx);
+          lastBlocker = curr;
       }
       return;
     }
     let endBlock = /__end(foreach|if)__/.exec(line);
-    //TODO: add check so that not-matching __end**__ would throw error instead of fail silently.
+    // TODO: add check so that not-matching __end**__ would throw error instead of fail silently.
     if (endBlock != null) {
       if(endBlock[1]==='foreach') {      
         stack.push(curr);
         ctx = ctx.parent;
         curr = new blockHandler(ctx);
-        lastBlocker =curr;        
+        lastBlocker = curr;        
       } else if(endBlock[1]==='if') {
-        ctx.skip = false;
+        stack.push(curr);
+        let newctx = _.clone(ctx);
+        newctx.skip = false; // __if:xxx__ can't be nested
+        ctx = newctx;
+        curr = new blockHandler(ctx);
+        lastBlocker = curr;
       }
       return;
     }

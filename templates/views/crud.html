@@ -16,12 +16,17 @@
   <div id="tableController">
     <div id="actions">
       <oj-toolbar id='myToolbar' class='oj-toolbar-bottom-border' aria-label='Editing Toolbar' aria-controls='controlled'>
+        __if:this.actions.indexOf("create")>=0__
         <oj-button id='Create' data-bind="click: openCreateDialog">
           <span slot='startIcon' class='slc-create-icon-16'></span>Create
         </oj-button>
+        __endif__
+
+        __if:this.actions.indexOf("delete")>=0__        
         <oj-button id='Delete' data-bind="click: deleteOpen" display='all'>
           <span slot='startIcon' class='slc-delete-icon-16'></span>Delete
         </oj-button>
+        __endif__
         <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span>
       </oj-toolbar>
     </div>
