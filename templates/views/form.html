@@ -1,44 +1,44 @@
 <script id="base-input-text" type="text/html">
-  <oj-label for='input-text' show-required="[[isRequired]]" help.definition='[[helpDef]]' help.source='[[helpSource]]'>input</oj-label>
-  <oj-input-text id="input-text" required="[[isRequired]]" value="text"></oj-input-text>
+  <oj-label for='input-text'>input</oj-label>
+  <oj-input-text id="input-text"></oj-input-text>
 </script>
 
 <script id="base-text-area" type="text/html">
-  <oj-label for="textarea" show-required="[[isRequired]]" help.definition='[[helpDef]]' help.source='[[helpSource]]'>textarea</oj-label>
-  <oj-text-area id="textarea" rows="6" value='text' required="[[isRequired]]"></oj-text-area>
+  <oj-label for="textarea">textarea</oj-label>
+  <oj-text-area id="textarea" rows="6"></oj-text-area>
 </script>
 
 <script id="base-input-date" type="text/html">
-  <oj-label for="datepicker" show-required="[[isRequired]]" help.definition='[[helpDef]]' help.source='[[helpSource]]'>datepicker</oj-label>
-  <oj-input-date id="datepicker" value="{{oj.IntlConverterUtils.dateToLocalIso(new Date())}}" required="[[isRequired]]"> </oj-input-date>
+  <oj-label for="datepicker">datepicker</oj-label>
+  <oj-input-date id="datepicker"> </oj-input-date>
 </script>
 
 <script id="base-input-date-time" type="text/html">
-  <oj-label for="datepicker" show-required="[[isRequired]]" help.definition='[[helpDef]]' help.source='[[helpSource]]'>datepicker</oj-label>
-  <oj-input-date-time id="datepicker" value="{{oj.IntlConverterUtils.dateToLocalIso(new Date())}}" required="[[isRequired]]"> </oj-input-date-time>
+  <oj-label for="datepicker">datepicker</oj-label>
+  <oj-input-date-time id="datepicker"> </oj-input-date-time>
 </script>
 
 <script id="base-input-time" type="text/html">
-  <oj-label for="datepicker" show-required="[[isRequired]]" help.definition='[[helpDef]]' help.source='[[helpSource]]'>datepicker</oj-label>
-  <oj-input-time id="datepicker" value="{{oj.IntlConverterUtils.dateToLocalIso(new Date())}}" required="[[isRequired]]"> </oj-input-time>
+  <oj-label for="datepicker">datepicker</oj-label>
+  <oj-input-time id="datepicker"> </oj-input-time>
 </script>
 
 <script id="base-radioset" type="text/html">
-  <oj-label id="radiosetlabel" show-required="[[isRequired]]" help.definition='[[helpDef]]' help.source='[[helpSource]]'>radioset</oj-label>
-  <oj-radioset id="radioSetId" required="[[isRequired]]" labelled-by="radiosetlabel">
+  <oj-label id="radiosetlabel">radioset</oj-label>
+  <oj-radioset id="radioSetId"  labelled-by="radiosetlabel">
     <oj-option name="color" value="red">Red</oj-option>
     <oj-option name="color" value="blue">Blue</oj-option>
   </oj-radioset>
 </script>
 
 <script id="base-input-number" type="text/html">
-  <oj-label for="spinner" show-required="[[isRequired]]" help.definition='[[helpDef]]' help.source='[[helpSource]]'>input number</oj-label>
-  <oj-input-number id="spinner" max="100" min="10" step="10" value="20" required="[[isRequired]]"></oj-input-number>
+  <oj-label for="spinner">input number</oj-label>
+  <oj-input-number id="spinner" max="100" min="10" step="10" value="20" ></oj-input-number>
 </script>
 
 <script id="base-combobox-one" type="text/html">
-  <oj-label for="combobox" show-required="[[isRequired]]" help.definition='[[helpDef]]' help.source='[[helpSource]]'>combobox</oj-label>
-  <oj-combobox-one id="combobox" required="[[isRequired]]">
+  <oj-label for="combobox">combobox</oj-label>
+  <oj-combobox-one id="combobox" >
     <oj-option value="Internet Explorer">Internet Explorer</oj-option>
     <oj-option value="Firefox">Firefox</oj-option>
     <oj-option value="Chrome">Chrome</oj-option>
@@ -48,8 +48,8 @@
 </script>
 
 <script id="base-select-one" type="text/html">
-  <oj-label for="selectcomp" show-required="[[isRequired]]" id="selectid" help.definition='[[helpDef]]' help.source='[[helpSource]]'>select</oj-label>
-  <oj-select-one id="selectcomp" value='Chrome' required="[[isRequired]]">
+  <oj-label for="selectcomp" id="selectid">select</oj-label>
+  <oj-select-one id="selectcomp" value='Chrome' >
     <oj-option value="Internet Explorer">Internet Explorer</oj-option>
     <oj-option value="Firefox">Firefox</oj-option>
     <oj-option value="Chrome">Chrome</oj-option>
@@ -60,5 +60,5 @@
 
 <script id="base-switch" type="text/html">
   <oj-label class="oj-label" for="switch">switch component</oj-label>
-  <oj-switch id="switch" value="{{isChecked}}"></oj-switch>
+  <oj-switch id="switch"></oj-switch>
 </script>

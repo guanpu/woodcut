@@ -5,13 +5,13 @@
 /*
  * The Device Binding ViewModel
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'utils/notifier', 'ojs/ojknockout', 'promise',
+define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'promise',
     'ojs/ojtable', 'ojs/ojgauge', 'ojs/ojdialog', 'ojs/ojcollectiontabledatasource', 'ojs/ojradioset',
     'ojs/ojpagingcontrol', 'ojs/ojpagingtabledatasource', 'ojs/ojbutton', 'ojs/ojtoolbar', 'ojs/ojinputnumber', 'ojs/ojdatetimepicker',
     'ojs/ojswitch', 'ojs/ojinputtext', 'ojs/ojselectcombobox', 'jet-composites/q-control/loader',
     'ojs/ojarraydataprovider', 'ojs/ojcollapsible'
   ],
-  function(oj, ko, $, notifier) {
+  function(oj, ko, $) {
 
     function DeviceBindingViewModel() {
       var self = this;
@@ -36,12 +36,6 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'utils/notifier', 'ojs/ojknockout', 
         __endforeach__
       ];
 
-      self._createentity = {
-        __foreach:fields__
-        "__name__":self.field$__name__,
-        __endforeach__
-      }
-
       self._pageSize = ko.observable(10);
       
       self.columnArray = ko.observableArray([
@@ -53,12 +47,6 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'utils/notifier', 'ojs/ojknockout', 
         __endforeach__
       ]);
 
-      self._initcreate = function() {
-        __foreach:fields__
-        self.field-__name__(undefined);
-        __endforeach__
-      }
-
       self._viewdata = function(response) {
         return {
           __foreach:fields__
@@ -66,12 +54,6 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'utils/notifier', 'ojs/ojknockout', 
           __endforeach__
         };
       };
-
-      self.openCreateDialog = function() {
-        $("#createModalDialog").get(0).open();
-      };
-
-
 
       function getURL(operation, collection, options) {
         var url = self.serviceURL;
@@ -92,7 +74,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'utils/notifier', 'ojs/ojknockout', 
       self.Views = oj.Model.extend({
         urlRoot: self.serviceURL,
         parse: self._viewdata,
-        idAttribute: 'imsi'
+        idAttribute: 'id'
       });
 
       self.ViewCollection = oj.Collection.extend({
@@ -119,6 +101,14 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'utils/notifier', 'ojs/ojknockout', 
 
       self.pagingDatasource = ko.observable(new oj.PagingTableDataSource(datasource));
 
+
+      /********************* Actions *******************************/
+
+      self.openCreateDialog = function() {
+        $("#createModalDialog").get(0).open();
+      };
+
+      
       self.deleteOpen = function() {
         $("#delete_dialog").get(0).open();
       };
@@ -160,6 +150,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'utils/notifier', 'ojs/ojknockout', 
           }
         });
       }
+
     }
 
     return new DeviceBindingViewModel();

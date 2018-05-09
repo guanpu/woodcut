@@ -26,8 +26,9 @@
       </oj-toolbar>
     </div>
   </div>
+
   <div id="deviceBindingContainer">
-    <oj-table id='table' aria-label='ESim Table' data='[[pagingDatasource]]' columns='{{columnArray}}' style='width: 100%;' selection-mode='{"row": "multiple", "column": "multiple"}' data-bind="click: selectionImsi">
+    <oj-table id='table' aria-label='ESim Table' data='[[pagingDatasource]]' columns='{{columnArray}}' style='width: 100%;' selection-mode='{"row": "multiple", "column": "multiple"}'>
       <oj-paging-control id="paging" data='[[pagingDatasource]]' page-options.max-page-links='5' page-size='[[_pageSize]]' slot='bottom'>
       </oj-paging-control>
     </oj-table>
@@ -65,6 +66,5 @@
       </oj-button>
     </div>
   </oj-dialog>
-
 
 </div>
