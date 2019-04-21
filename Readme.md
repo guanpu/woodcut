@@ -2,6 +2,9 @@
 The project is aimed to create a locally installed tool, to helper developers to generate UI codes from templates.
 It's designed to be installable as a global npm package, but current haven't publish to public npm registry. Instead it's published to NJ local nexus-npm-registry.
 
+![uncached image](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/guanpu/woodcut/master/explain.pu?token=ABMYMZMUK2ZGBLAI2DEEPMC4XPTMM)
+
+
 # How to
 ## Install
 To use it, configure you local registry:

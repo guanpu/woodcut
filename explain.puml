@@ -1,0 +1,5 @@
+@startuml
+   participant "Actor 1" as act1
+   participant "Actor 2" as act2
+   act1 -> act2 : Hello
+@enduml
