@@ -6,11 +6,7 @@ It's designed to be installable as a global npm package, but current haven't pub
 
 
 # How to
-## Install
-To use it, configure you local registry:
-`npm config set registry http://10.113.49.221:5800/repository/npm-public/`
-and then
-`npm install -g woodcut`
+
 ## Generate code
 first, in your project root, add two folder and corresponding sub-folders/files like:
 ```
